@@ -1,0 +1,122 @@
+[
+  {
+    "business_type": "Sole Proprietorship (တစ်ဦးတိုင်လုပ်ငန်း)",
+    "description": "Business owned and operated by a single individual",
+    "enabled": 1
+  },
+  {
+    "business_type": "Partnership (ပူးပေါင်းလုပ်ငန်း)",
+    "description": "Business owned by two or more partners",
+    "enabled": 1
+  },
+  {
+    "business_type": "Private Limited Company (ကုမ္ပဏီလimited)",
+    "description": "Company limited by shares with private ownership",
+    "enabled": 1
+  },
+  {
+    "business_type": "Public Limited Company (အများပိုင်ကုမ္ပဏီ)",
+    "description": "Company whose shares are traded publicly",
+    "enabled": 1
+  },
+  {
+    "business_type": "Cooperative Society (သမဝါယမအသင်း)",
+    "description": "Member-owned business organization",
+    "enabled": 1
+  },
+  {
+    "business_type": "Non-Profit Organization (အမြတ်မယူသောအဖွဲ့အစည်း)",
+    "description": "Organization operating for charitable purposes",
+    "enabled": 1
+  },
+  {
+    "business_type": "Branch Office (ကိုယ်စားလှယ်ရုံး)",
+    "description": "Foreign company branch office in Myanmar",
+    "enabled": 1
+  },
+  {
+    "business_type": "Representative Office (သတင်းအချက်အလက်ရုံး)",
+    "description": "Foreign company representative office",
+    "enabled": 1
+  },
+  {
+    "business_type": "Joint Venture (ပူးပေါင်းဆောင်ရွက်ရေးလုပ်ငန်း)",
+    "description": "Business partnership between local and foreign entities",
+    "enabled": 1
+  },
+  {
+    "business_type": "Small and Medium Enterprise (အသေးစားနှင့်အလတ်စားလုပ်ငန်း)",
+    "description": "SME classified business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Family Business (မိသားစုလုပ်ငန်း)",
+    "description": "Business owned and managed by family members",
+    "enabled": 1
+  },
+  {
+    "business_type": "Retail Shop (လက်လီအရောင်းဆိုင်)",
+    "description": "Retail trading business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Wholesale Trader (လက်ကားကုန်သည်)",
+    "description": "Wholesale trading business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Manufacturer (ထုတ်လုပ်သူ)",
+    "description": "Manufacturing and production business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Service Provider (ဝန်ဆောင်မှုပေးသူ)",
+    "description": "Service-based business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Trading Company (ကုန်သွယ်ရေးကုမ္ပဏီ)",
+    "description": "Import and export trading company",
+    "enabled": 1
+  },
+  {
+    "business_type": "Agricultural Business (စိုက်ပျိုးရေးလုပ်ငန်း)",
+    "description": "Farming and agricultural production",
+    "enabled": 1
+  },
+  {
+    "business_type": "Livestock Business (မွေးမြူရေးလုပ်ငန်း)",
+    "description": "Animal husbandry and livestock farming",
+    "enabled": 1
+  },
+  {
+    "business_type": "Fishery Business (ငါးလုပ်ငန်း)",
+    "description": "Fishing and aquaculture business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Construction Company (ဆောက်လုပ်ရေးကုမ္ပဏီ)",
+    "description": "Building and construction services",
+    "enabled": 1
+  },
+  {
+    "business_type": "Hotel & Tourism (ဟိုတယ်နှင့်ခရီးသွားလုပ်ငန်း)",
+    "description": "Hospitality and tourism services",
+    "enabled": 1
+  },
+  {
+    "business_type": "Restaurant & Food Service (စားသောက်ဆိုင်နှင့်အစားအစာဝန်ဆောင်မှု)",
+    "description": "Food and beverage service business",
+    "enabled": 1
+  },
+  {
+    "business_type": "Gem & Jewelry Business (ရတနာနှင့်ရွှေချည်လုပ်ငန်း)",
+    "description": "Gemstone and jewelry trading/manufacturing",
+    "enabled": 1
+  },
+  {
+    "business_type": "Textile & Garment (အထည်အလိပ်နှင့်အဝတ်အထည်လုပ်ငန်း)",
+    "description": "Textile and garment manufacturing",
+    "enabled": 1
+  }
+]

@@ -1,0 +1,138 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"KJ8vZ8H9Gq3xN2mL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Myanmar Business Localization</span>\",\"col\":12}},{\"id\":\"Mn7pR4tY6wQ1sX9z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Myanmar Business Type\",\"col\":3}},{\"id\":\"Bv5cD2fH8jK0lN3p\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Myanmar Tax Report\",\"col\":3}},{\"id\":\"Qw9eR7tY5uI1oP3a\",\"type\":\"card\",\"data\":{\"card_name\":\"Business Setup\",\"col\":4}},{\"id\":\"Zx8cV6bN4mK2lJ0h\",\"type\":\"card\",\"data\":{\"card_name\":\"Tax & Compliance\",\"col\":4}},{\"id\":\"Lf3gH5jK7lZ9xC1v\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "creation": "2024-01-01 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "business",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Myanmar Local Business",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Business Setup",
+   "link_count": 2,
+   "onboard": 1,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Myanmar Business Type",
+   "link_count": 0,
+   "link_to": "Myanmar Business Type",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup Wizard",
+   "link_count": 0,
+   "link_to": "setup-wizard",
+   "link_type": "Page",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tax & Compliance",
+   "link_count": 3,
+   "onboard": 1,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tax Template",
+   "link_count": 0,
+   "link_to": "Sales Taxes and Charges Template",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Create Tax Templates",
+   "link_count": 0,
+   "link_to": "create_myanmar_tax_templates",
+   "link_type": "Action",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Commercial Tax Rules",
+   "link_count": 0,
+   "link_to": "myanmar.regional.myanmar.tax_rules.get_data",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Reports",
+   "link_count": 2,
+   "onboard": 1,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Myanmar Tax Report",
+   "link_count": 0,
+   "link_to": "Myanmar Tax Report",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Register",
+   "link_count": 0,
+   "link_to": "Sales Register",
+   "link_type": "Report",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Regional",
+ "name": "Myanmar Local Business",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Myanmar Business Type",
+   "link_to": "Myanmar Business Type",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "Report",
+   "label": "Myanmar Tax Report",
+   "link_to": "Myanmar Tax Report",
+   "type": "Report"
+  }
+ ],
+ "title": "Myanmar Local Business"
+}
