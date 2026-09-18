@@ -1,25 +1,30 @@
-*.pyc
-*.py~
-.DS_Store
-conf.py
-latest_updates.json
-.wnf-lang-status
-*.egg-info
-dist/
-erpnext/public/dist
-erpnext/docs/current
+```
+# Logs and temp files
+*.log
+*.tmp
 *.swp
-*.swo
-__pycache__
-*~
-.idea/
-.vscode/
-.helix/
-node_modules/
-.backportrc.json
-# Aider AI Chat
-.aider*
 
-# Banking SPA
-erpnext/public/banking
-erpnext/www/banking.html
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Dependencies
+.venv/
+venv/
+__pycache__/
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.pyc
+
+# System files
+.DS_Store
+Thumbs.db
+```
