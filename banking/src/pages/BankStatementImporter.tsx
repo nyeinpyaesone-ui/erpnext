@@ -55,19 +55,23 @@ const BankStatementImporter = () => {
             ? updateDoc("Bank Account", selectedBankAccount.name, { statement_password: password })
             : Promise.resolve()
 
+        interface PartialBankStatementImportLog {
+            name: string;
+            file: string;
+            bank_account: string;
+        }
+
         ensurePassword.then(() => upload(files[0], {
             isPrivate: true,
             doctype: "Bank Statement Import Log",
             docname: id,
             fieldname: 'file'
         })).then((file) => {
-            return createDoc("Bank Statement Import Log",
-                // @ts-expect-error - not filling everything else
-                {
-                    name: id,
-                    file: file.file_url,
-                    bank_account: selectedBankAccount.name
-                })
+            return createDoc("Bank Statement Import Log", {
+                name: id,
+                file: file.file_url,
+                bank_account: selectedBankAccount.name
+            } as PartialBankStatementImportLog)
         }).then((doc) => {
             navigate(`/statement-importer/${doc.name}`)
         })

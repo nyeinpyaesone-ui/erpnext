@@ -6,11 +6,22 @@ interface ParsedErrorMessage {
     indicator?: string,
 }
 
-
-export const getErrorMessage = (error?: FrappeError | null): string => {
-    const messages = getErrorMessages(error)
-    return messages.map(m => m.message).join('\n')
+interface ServerMessage {
+    message: string;
+    title?: string;
+    indicator?: string;
+    [key: string]: unknown;
 }
+
+/**
+ * Get formatted error message from FrappeError
+ * @param error - The FrappeError object to parse
+ * @returns Formatted error message string
+ */
+export const getErrorMessage = (error?: FrappeError | null): string => {
+    const messages = getErrorMessages(error);
+    return messages.map(m => m.message).join('\n');
+};
 
 /**
  * Standard function to parse the error messages from the FrappeError object
@@ -18,55 +29,58 @@ export const getErrorMessage = (error?: FrappeError | null): string => {
  * @returns An array of ParsedErrorMessage objects
  */
 export const getErrorMessages = (error?: FrappeError | null): ParsedErrorMessage[] => {
-    if (!error) return []
-    let eMessages: ParsedErrorMessage[] = error?._server_messages ? JSON.parse(error?._server_messages) : []
+    if (!error) return [];
+    
+    let eMessages: ParsedErrorMessage[] = error?._server_messages 
+        ? JSON.parse(error?._server_messages) as ServerMessage[]
+        : [];
+    
     eMessages = eMessages.map((m) => {
         try {
-
-            // @ts-expect-error - it can sometimes be a string
-            return JSON.parse(m)
-
+            // Handle both string and object messages
+            if (typeof m === 'string') {
+                return JSON.parse(m) as ParsedErrorMessage;
+            }
+            return m as ParsedErrorMessage;
+        } catch {
+            // If parsing fails, treat as string message
+            return { message: typeof m === 'string' ? m : JSON.stringify(m) };
         }
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        catch (e) {
-            return m
-        }
-    })
+    });
 
-    // @ts-expect-error - some errors have _error_message
-    if (error?._error_message) {
+    // Handle _error_message if present
+    const hasErrorMessage = error && '_error_message' in error && error._error_message;
+    if (hasErrorMessage) {
         eMessages.push({
-            // @ts-expect-error - some errors have _error_message
-            message: error?._error_message,
+            message: String(error._error_message),
             title: "Error",
             indicator: "red"
-        })
+        });
     }
 
     if (eMessages.length === 0) {
         // Get the message from the exception by removing the exc_type
-        const indexOfFirstColon = error?.exception?.indexOf(':')
-        if (indexOfFirstColon) {
-            const exception = error?.exception?.slice(indexOfFirstColon + 1)
+        const indexOfFirstColon = error?.exception?.indexOf(':');
+        if (indexOfFirstColon !== undefined && indexOfFirstColon > -1) {
+            const exception = error?.exception?.slice(indexOfFirstColon + 1);
             if (exception) {
                 eMessages = [{
                     message: exception,
                     title: "Error"
-                }]
+                }];
             }
         }
 
         if (eMessages.length === 0) {
             eMessages = [{
-                message: error?.message,
+                message: error?.message || "An error occurred",
                 title: "Error",
                 indicator: "red"
-            }]
+            }];
         }
     }
-    return eMessages
-
-}
+    return eMessages;
+};
 
 export const slug = (name?: string) => {
     return name?.toLowerCase().replace(/ /g, "-") ?? "";

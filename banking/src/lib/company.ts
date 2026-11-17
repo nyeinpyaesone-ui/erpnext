@@ -1,15 +1,37 @@
+import type { Document, LocalsMap } from './namespace/types';
 
-export const getCompanyCurrency = (company: string) => {
-    // @ts-expect-error - Locals is synced
-    return locals[':Company']?.[company]?.['default_currency']
+interface CompanyDocument extends Document {
+    default_currency?: string;
+    cost_center?: string;
+    [key: string]: unknown;
 }
 
-export const getCompanyCostCenter = (company: string) => {
-    // @ts-expect-error - Locals is synced
-    return locals[':Company']?.[company]?.['cost_center']
-}
+/**
+ * Get default currency for a company
+ * @param company - Company name
+ * @returns Default currency code
+ */
+export const getCompanyCurrency = (company: string): string | undefined => {
+    const companyLocals = (window.locals as LocalsMap)?.[':Company'];
+    return companyLocals?.[company]?.['default_currency'] as string | undefined;
+};
 
-export const getCompany = (company: string) => {
-    // @ts-expect-error - Locals is synced
-    return locals?.[':Company']?.[company]
-}
+/**
+ * Get default cost center for a company
+ * @param company - Company name
+ * @returns Cost center name
+ */
+export const getCompanyCostCenter = (company: string): string | undefined => {
+    const companyLocals = (window.locals as LocalsMap)?.[':Company'];
+    return companyLocals?.[company]?.['cost_center'] as string | undefined;
+};
+
+/**
+ * Get company document from locals
+ * @param company - Company name
+ * @returns Company document or undefined
+ */
+export const getCompany = (company: string): CompanyDocument | undefined => {
+    const companyLocals = (window.locals as LocalsMap)?.[':Company'];
+    return companyLocals?.[company] as CompanyDocument | undefined;
+};

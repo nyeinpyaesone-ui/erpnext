@@ -1,24 +1,51 @@
-export const getCurrencySymbol = (currency: string) => {
-    // @ts-expect-error - Boot is available
-    if (frappe.boot) {
-        // @ts-expect-error - Boot is available
-        if (frappe.boot.sysdefaults && frappe.boot.sysdefaults.hide_currency_symbol == "Yes")
+import type { SystemDefaults } from './namespace/types';
+
+/**
+ * Get currency symbol for display
+ * @param currency - Currency code
+ * @returns Currency symbol or empty string if hidden
+ */
+export const getCurrencySymbol = (currency?: string): string => {
+    const boot = window.frappe?.boot;
+    
+    if (boot) {
+        const sysdefaults = boot.sysdefaults as SystemDefaults | undefined;
+        
+        if (sysdefaults?.hide_currency_symbol === "Yes") {
             return "";
-        // @ts-expect-error - Boot is available
-        if (!currency) currency = frappe.boot.sysdefaults.currency;
+        }
+        
+        if (!currency) {
+            currency = sysdefaults?.currency;
+        }
 
-        return getCurrencyProperty(currency, 'symbol') || currency;
-    } else {
-        return getCurrencyProperty(currency, 'symbol') || currency
+        return getCurrencyProperty(currency, 'symbol') || currency || '';
     }
-}
+    
+    return getCurrencyProperty(currency, 'symbol') || currency || '';
+};
 
-export const getCurrencyNumberFormat = (currency: string) => {
-    return getCurrencyProperty(currency, 'number_format')
-}
+/**
+ * Get number format for currency
+ * @param currency - Currency code
+ * @returns Number format string
+ */
+export const getCurrencyNumberFormat = (currency: string): string | undefined => {
+    return getCurrencyProperty(currency, 'number_format');
+};
 
-
-export const getCurrencyProperty = (currency: string, property: 'symbol' | 'symbol_on_right' | 'number_format') => {
-    // @ts-expect-error - Locals is synced
-    return locals[':Currency']?.[currency]?.[property]
-}
+/**
+ * Get currency property from locals
+ * @param currency - Currency code
+ * @param property - Property to retrieve
+ * @returns Property value or undefined
+ */
+export const getCurrencyProperty = (
+    currency: string | undefined, 
+    property: 'symbol' | 'symbol_on_right' | 'number_format'
+): string | undefined => {
+    if (!currency) return undefined;
+    
+    const currencyLocals = (window.locals as any)?.[':Currency'];
+    return currencyLocals?.[currency]?.[property];
+};
